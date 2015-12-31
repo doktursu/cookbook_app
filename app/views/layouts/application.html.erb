@@ -10,6 +10,13 @@
 
 <header><h1>CookBook</h1></header>
 
+<nav>
+  <ul>
+    <li><%= link_to "Categories", categories_path %></li>
+    <li><%= link_to "Recipes", recipes_path %></li>
+  </ul>
+</nav>
+
 <%= render partial: "nav" rescue nil %>
 
 <%= yield %>
