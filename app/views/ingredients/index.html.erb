@@ -1,0 +1,8 @@
+<h2>Ingredients</h2>
+
+<% @ingredients.each do |ingredient| %>
+  <%= ingredient.name %>
+  <%= image_tag ingredient.image %>
+  <%= button_to "Edit", edit_ingredient_path(ingredient), method: :get %>
+  <%= button_to "Delete", ingredient_path(ingredient), method: :delete, data: { confirm: "Delete ingredient?" } %>
+<% end %>
