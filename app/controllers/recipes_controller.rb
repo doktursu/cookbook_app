@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.order(:name)
   end
 
   def new
     @recipe = Recipe.new
-    @categories = Category.all
+    @categories = Category.all.order(:name)
   end
 
   def create
@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    @categories = Category.all
+    @categories = Category.all.order(:name)
   end
 
   def update
