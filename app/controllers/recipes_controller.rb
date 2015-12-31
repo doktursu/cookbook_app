@@ -6,10 +6,21 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @categories = Category.all
   end
 
   def create
     Recipe.create(recipe_params)
+    redirect_to recipes_path
+  end
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    Recipe.find(params[:id]).update(recipe_params)
     redirect_to recipes_path
   end
 
