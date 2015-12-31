@@ -14,6 +14,10 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
   def edit
     @recipe = Recipe.find(params[:id])
     @categories = Category.all

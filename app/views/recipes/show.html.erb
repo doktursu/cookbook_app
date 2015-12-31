@@ -1,0 +1,8 @@
+<h2><%= @recipe.name %></h2>
+
+<%= @recipe.category.name %>
+
+<%= @recipe.method %>
+
+<%= button_to "Edit", edit_recipe_path(@recipe), method: :get %>
+<%= button_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: "Delete recipe?" } %>
