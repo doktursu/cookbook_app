@@ -1,8 +1,5 @@
 <h2>Recipes</h2>
 
 <% @recipes.each do |recipe| %>
-  <%= link_to recipe.name, recipe_path(recipe) %>
-  <%= image_tag recipe.image %>
-  <%= button_to "Edit", edit_recipe_path(recipe), method: :get %>
-  <%= button_to "Delete", recipe_path(recipe), method: :delete, data: { confirm: "Delete recipe?" } %>
+  <%= render partial: "list", locals: { recipe: recipe } %>
 <% end %>

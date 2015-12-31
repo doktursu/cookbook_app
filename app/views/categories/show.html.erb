@@ -1,7 +1,5 @@
 <h2><%= @category.name %></h2>
 
 <% @recipes.each do |recipe| %>
-  <%= link_to recipe.name, recipe_path(recipe) %>
-  <%= image_tag recipe.image %>
-
+  <%= render partial: "recipes/list", locals: { recipe: recipe } %>
 <% end %>
