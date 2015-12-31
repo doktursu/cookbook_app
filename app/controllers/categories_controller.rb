@@ -13,6 +13,11 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
 
+  def show
+    @category = Category.find(params[:id])
+    @recipes = Recipe.where(category_id: params[:id]).order(:name)
+  end
+
   def edit
     @category = Category.find(params[:id])
   end
