@@ -2,6 +2,8 @@
 
 <%= @recipe.category.name %>
 
+<%= image_tag @recipe.image %>
+
 <%= @recipe.method %>
 
 <%= button_to "Edit", edit_recipe_path(@recipe), method: :get %>
