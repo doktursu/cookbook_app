@@ -1,14 +1,17 @@
 <h2><%= @recipe.name %></h2>
+<%= button_to "Edit", edit_recipe_path(@recipe), method: :get %>
+<%= button_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: "Delete recipe?" } %>
 
 <p><%= @recipe.category.name %></p>
 
 <%= image_tag @recipe.image %>
 
+<p>Method:</p>
 <p><%= @recipe.method %></p>
 
-<% @recipe.ingredients.each do |ingredient| %>
-  <%= link_to ingredient.name, ingredient_path(ingredient) %>
+<% if @recipe.ingredients.any? %>
+  <p>Ingredients:</p>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <%= link_to ingredient.name, ingredient_path(ingredient) %>
+  <% end %>
 <% end %>
-
-<%= button_to "Edit", edit_recipe_path(@recipe), method: :get %>
-<%= button_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: "Delete recipe?" } %>

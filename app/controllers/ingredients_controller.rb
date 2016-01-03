@@ -12,6 +12,10 @@ class IngredientsController < ApplicationController
     redirect_to ingredients_path
   end
 
+  def show
+    @ingredient = Ingredient.find(params[:id])
+  end
+
   def edit
     @ingredient = Ingredient.find(params[:id])
   end

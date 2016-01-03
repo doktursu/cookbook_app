@@ -1,0 +1,12 @@
+<h2><%= @ingredient.name %></h2>
+<%= button_to "Edit", edit_ingredient_path(@ingredient), method: :get %>
+<%= button_to "Delete", ingredient_path(@ingredient), method: :delete, data: { confirm: "Delete ingredient?" } %>
+
+<%= image_tag @ingredient.image %>
+
+<% if @ingredient.recipes.any? %>
+  <p>Recipes:</p>
+  <% @ingredient.recipes.each do |recipe| %>
+    <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+  <% end %>
+<% end %>
