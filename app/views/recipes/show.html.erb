@@ -12,6 +12,6 @@
 <% if @recipe.ingredients.any? %>
   <p>Ingredients:</p>
   <% @recipe.ingredients.each do |ingredient| %>
-    <%= link_to ingredient.name, ingredient_path(ingredient) %>
+    <p><%= link_to ingredient.name, ingredient_path(ingredient) %></p>
   <% end %>
 <% end %>

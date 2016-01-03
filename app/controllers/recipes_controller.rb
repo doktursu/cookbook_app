@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.create(recipe_params)
     @ingredients = Ingredient.where(id: params[:ingredients])
     @recipe.ingredients << @ingredients
-    redirect_to recipes_path
+    redirect_to recipe_path(@recipe)
   end
 
   def show
@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
     @recipe.update(recipe_params)
     @ingredients = Ingredient.where(id: params[:ingredients])
     @recipe.ingredients << @ingredients
-    redirect_to recipes_path
+    redirect_to recipe_path(@recipe)
   end
 
   def destroy
