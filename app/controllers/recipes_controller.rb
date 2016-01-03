@@ -7,10 +7,13 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @categories = Category.all.order(:name)
+    @ingredients = Ingredient.all.order(:name)
   end
 
   def create
-    Recipe.create(recipe_params)
+    @recipe = Recipe.create(recipe_params)
+    @ingredients = Ingredient.where(id: params[:ingredients])
+    @recipe.ingredients << @ingredients
     redirect_to recipes_path
   end
 
@@ -21,10 +24,14 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     @categories = Category.all.order(:name)
+    @ingredients = Ingredient.all.order(:name)
   end
 
   def update
-    Recipe.find(params[:id]).update(recipe_params)
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+    @ingredients = Ingredient.where(id: params[:ingredients])
+    @recipe.ingredients << @ingredients
     redirect_to recipes_path
   end
 

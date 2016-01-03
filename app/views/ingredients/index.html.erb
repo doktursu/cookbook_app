@@ -1,8 +1,8 @@
 <h2>Ingredients</h2>
 
 <% @ingredients.each do |ingredient| %>
-  <%= ingredient.name %>
-  <%= image_tag ingredient.image %>
+  <h3><%= link_to ingredient.name, ingredient_path(ingredient) %></h3>
   <%= button_to "Edit", edit_ingredient_path(ingredient), method: :get %>
   <%= button_to "Delete", ingredient_path(ingredient), method: :delete, data: { confirm: "Delete ingredient?" } %>
+  <%= image_tag ingredient.image %>
 <% end %>

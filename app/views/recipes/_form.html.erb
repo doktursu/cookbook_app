@@ -4,6 +4,10 @@
 <%= f.label :image, "Image URL" %>
 <%= f.url_field :image %>
 
+<%= f.label :ingredients %>
+<% options = options_from_collection_for_select(@ingredients, :id, :name, @recipe.ingredients.map { |i| i.id }) %>
+<%= select_tag "ingredients", options, multiple: true %>
+
 <%= f.label :category_id %>
 <% options = options_from_collection_for_select(@categories, :id, :name, @recipe.category_id) %>
 <%= f.select :category_id, options %>
