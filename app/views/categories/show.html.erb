@@ -1,4 +1,6 @@
 <h2><%= @category.name %></h2>
+<%= button_to "Edit", edit_category_path(@category), method: :get %>
+<%= button_to "Delete", category_path(@category), method: :delete, data: { confirm: "Delete category?" } %>
 
 <% @recipes.each do |recipe| %>
   <%= render partial: "recipes/list", locals: { recipe: recipe } %>
