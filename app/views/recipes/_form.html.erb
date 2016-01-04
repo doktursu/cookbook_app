@@ -1,16 +1,35 @@
-<%= f.label :name %>
-<%= f.text_field :name %>
+<fieldset>
+  <ol>
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label :image, "Image URL" %>
+      <%= f.url_field :image %>
+    </li>
+<!--     <li>
+      <%# f.label :ingredients %>
+      <%# options = options_from_collection_for_select(@ingredients, :id, :name, @recipe.ingredients.map { |i| i.id }) %>
+      <%# select_tag :ingredients, options, multiple: true %>
+    </li> -->
+    <li>
+      <%= f.label :category_id %>
+      <% options = options_from_collection_for_select(@categories, :id, :name, @recipe.category_id) %>
+      <%= f.select :category_id, options %>
+    </li>
+    <li>
+      <%= f.label :method %>
+      <%= f.text_area :method %>
+    </li>
+  </ol>
+</fieldset>
 
-<%= f.label :image, "Image URL" %>
-<%= f.url_field :image %>
-
-<%= f.label :ingredients %>
-<% options = options_from_collection_for_select(@ingredients, :id, :name, @recipe.ingredients.map { |i| i.id }) %>
-<%= select_tag "ingredients", options, multiple: true %>
-
-<%= f.label :category_id %>
-<% options = options_from_collection_for_select(@categories, :id, :name, @recipe.category_id) %>
-<%= f.select :category_id, options %>
-
-<%= f.label :method %>
-<%= f.text_area :method %>
+<fieldset id="recipe-ingredients">
+  <ol>
+    <%= f.fields_for :quantities do |quantity| %>
+      <%= render 'quantity_fields', f: quantity %>
+    <% end %>
+  </ol>
+  <%= link_to_add_association 'add ingredient', f, :quantities, 'data-association-insertion-node' => "#recipe-ingredients ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|quantity| quantity.build_ingredient; quantity } %>
+</fieldset>

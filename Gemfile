@@ -34,6 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'seed_dump'
 
+gem 'cocoon'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

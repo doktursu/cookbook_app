@@ -1,0 +1,18 @@
+<li>
+  <div>
+    <%= f.label :amount, "Amount:" %>
+    <%= f.number_field :amount %>
+
+    <%= f.label :unit %>
+    <%= f.text_field :unit %>
+
+    <%= f.label :ingredient %>
+    <%= f.fields_for :ingredient do |quantity_ingredient| %>
+      <%= quantity_ingredient.text_field :name %>
+      <%= quantity_ingredient.label :image %>
+      <%= quantity_ingredient.url_field :image %>
+    <% end %>
+
+    <%= link_to_remove_association "remove", f %>
+  </div>
+</li>

@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
 
-  before_action :load_recipe, except: [:index, :new, :create]
+  before_action :load_ingredient, except: [:index, :new, :create]
 
   def index
     @ingredients = Ingredient.all.order(:name)
@@ -36,7 +36,7 @@ class IngredientsController < ApplicationController
       params.require(:ingredient).permit(:name, :image)
     end
 
-    def load_recipe
-      @recipe = Recipe.find(params[:id])
+    def load_ingredient
+      @ingredient = Ingredient.find(params[:id])
     end
 end
