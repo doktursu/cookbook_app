@@ -41,7 +41,7 @@ class RecipesController < ApplicationController
 
     recipe.ingredients.delete(ingredient) if ingredient
 
-    redirect_to recipes_path
+    redirect_to recipe_path(recipe)
   end
 
   def destroy
