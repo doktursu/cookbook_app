@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   resources :categories
-  resources :recipes
+
+  resources :recipes do
+    get 'remove_ingredient', on: :member
+  end
+
   resources :ingredients
 
   root 'categories#index'
