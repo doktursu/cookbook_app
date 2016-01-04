@@ -8,6 +8,7 @@
 
     <%= f.label :ingredient %>
     <%= f.fields_for :ingredient do |quantity_ingredient| %>
+      <%= quantity_ingredient.collection_select :name, @ingredients, :name, :name, prompt: "Existing Ingredients" %>
       <%= quantity_ingredient.text_field :name %>
       <%= quantity_ingredient.label :image %>
       <%= quantity_ingredient.url_field :image %>

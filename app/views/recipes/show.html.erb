@@ -9,10 +9,10 @@
 <p>Method:</p>
 <p><%= @recipe.method %></p>
 
-<% if @recipe.ingredients.any? %>
+<% if @recipe.quantities.any? %>
   <p>Ingredients:</p>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <p><%= link_to ingredient.name, ingredient_path(ingredient) %></p>
-    <%= button_to "Remove", remove_ingredient_recipe_path(@recipe, ingredient), method: :get %>
+  <% @recipe.quantities.each do |quantity| %>
+    <p><%= quantity.amount %> <%= quantity.unit%> <%= link_to quantity.ingredient.name, ingredient_path(quantity.ingredient) %></p>
+    <%= button_to "Remove", remove_ingredient_recipe_path(@recipe, quantity.ingredient), method: :get %>
   <% end %>
 <% end %>

@@ -13,8 +13,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.create(recipe_params)
-    @ingredients = Ingredient.where(id: params[:ingredients])
-    @recipe.ingredients = @ingredients
+    # @ingredients = Ingredient.where(id: params[:ingredients])
+    # @recipe.ingredients = @ingredients
     redirect_to recipe_path(@recipe)
   end
 
