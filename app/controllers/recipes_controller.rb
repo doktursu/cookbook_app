@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.create(recipe_params)
     @ingredients = Ingredient.where(id: params[:ingredients])
-    @recipe.ingredients << @ingredients
+    @recipe.ingredients = @ingredients
     redirect_to recipe_path(@recipe)
   end
 
@@ -31,8 +31,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
     @ingredients = Ingredient.where(id: params[:ingredients])
-    @recipe.ingredients << @ingredients
+    @recipe.ingredients = @ingredients
     redirect_to recipe_path(@recipe)
+
+
   end
 
   def destroy
@@ -43,6 +45,13 @@ class RecipesController < ApplicationController
   private
     def recipe_params
       params.require(:recipe).permit(:name, :method, :category_id, :image)
+    end
+
+    def remove_ingredient_from_recipe(recipe)
+      ingredient = Ingredient.find(params[:ingredient][:id])
+      recipe = Ingredient.recipes.find(params[:recipe][:id])
+
+      Recipe.ingredients.delete(ingredient) if ingredient
     end
 
 end

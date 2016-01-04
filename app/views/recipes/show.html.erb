@@ -13,5 +13,6 @@
   <p>Ingredients:</p>
   <% @recipe.ingredients.each do |ingredient| %>
     <p><%= link_to ingredient.name, ingredient_path(ingredient) %></p>
+<!--     <%# button_to "Remove", recipe_path(@recipe, ingredient), method: :patch %> -->
   <% end %>
 <% end %>
