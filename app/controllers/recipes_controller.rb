@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @categories = Category.all.order(:name)
     @ingredients = Ingredient.all.order(:name)
-
+    @quantity = Quantity.all.order(:name)
   end
 
   def update
