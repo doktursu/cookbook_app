@@ -10,19 +10,21 @@
 
 <header>
 
-<h1>CookBook <%= render partial: "subheading" rescue nil %></h1>
+<h1 class="logo">cook<br>book</h1>
 
 </header>
 
-<nav>
+<nav class="nav">
   <ul>
-    <li><%= link_to "Categories", categories_path %></li>
-    <li><%= link_to "Recipes", recipes_path %></li>
-    <li><%= link_to "Ingredients", ingredients_path %></li>
+    <li><%= link_to "Categories", categories_path %></li><!--
+    --><li><%= link_to "Recipes", recipes_path, class: "active"%></li><!--
+    --><li><%= link_to "Ingredients", ingredients_path %></li>
   </ul>
 </nav>
 
-<%= render partial: "nav" rescue nil %>
+<!-- <h2><%# render partial: "subheading" rescue nil %></h2> -->
+
+
 
 <%= yield %>
 

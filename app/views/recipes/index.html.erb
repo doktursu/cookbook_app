@@ -1,4 +1,10 @@
-<h2>Recipes</h2>
+<div class="sub-header">
+  <div class="sub-nav">
+    <%= button_to "New Recipe", new_recipe_path, method: :get,  class: "btn btn-new" %>
+  </div>
+  <h2 class="sub-heading">Recipes</h2>
+</div>
+
 
 <% @recipes.each do |recipe| %>
   <%= render partial: "list", locals: { recipe: recipe } %>

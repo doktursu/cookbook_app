@@ -1,4 +1,10 @@
-<h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
-<%= button_to "Edit", edit_recipe_path(recipe), method: :get %>
-<%= button_to "Delete", recipe_path(recipe), method: :delete, data: { confirm: "Delete recipe?" } %>
-<%= image_tag recipe.image %>
+<div class="recipe-list">
+  <div class="object-btns">
+    <%= button_to "Edit", edit_recipe_path(recipe), method: :get, class: "btn btn-edit" %>
+    <%= button_to "Delete", recipe_path(recipe), method: :delete, data: { confirm: "Delete recipe?" }, class: "btn btn-delete" %>
+  </div>
+  <%= link_to recipe_path(recipe) do %>
+    <h3 class="recipe-title"><%= recipe.name %></h3>
+    <%= image_tag recipe.image %>
+  <% end %>
+</div>

@@ -3,7 +3,7 @@ class IngredientsController < ApplicationController
   before_action :load_ingredient, except: [:index, :new, :create]
 
   def index
-    @ingredients = Ingredient.all.order(:name)
+    @ingredients = Ingredient.order("LOWER(name)").all
   end
 
   def new

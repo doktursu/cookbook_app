@@ -14,6 +14,185 @@
  *= require_self
  */
 
-img {
-  width: 400px;
+ @import url(https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,300italic,300);
+
+html {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
+body {
+  background:
+    url("http://kissthechaos.com/wp-content/uploads/2014/04/stock-footage-close-up-of-bottle-pouring-olive-oil.jpg") no-repeat left top, 
+    url("http://www.bushbeans.com/sites/default/files/styles/recipe_math_ingredient/public/ingredients/math/basil.png?itok=8RS3MHBI") no-repeat right bottom;
+  font-family: Merriweather;
+  font-weight: 300;
+}
+
+/*
+  ========================================
+  Header
+  ========================================
+*/
+
+.logo {
+  /*text-transform: uppercase;*/
+  line-height: 1em;
+  margin: 0 auto;
+  text-align: center;
+  width: 110px;
+}
+
+/*
+  ========================================
+  Sub-Header
+  ========================================
+*/
+
+.sub-header {
+  margin: 1em auto;
+  position: relative;
+  width: 360px;
+}
+
+.sub-heading {
+  color: #666;
+  text-align: center;
+}
+
+.sub-nav {
+  position: absolute;
+  right: 0;
+}
+
+
+/*
+  ========================================
+  Nav
+  ========================================
+*/
+
+.nav ul {
+  width: 350px;
+/*  background-color: blue;*/
+  margin: 1em auto;
+  padding: 0;
+}
+
+.nav ul li {
+  background-color: gold;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.nav ul li:last-child {
+  margin-right: 0;
+}
+
+.nav ul li a {
+  color: #fff;
+  height: 50px;
+  margin: 0 auto;
+  padding: .1em .96em;
+  width: 110px;
+}
+
+a.active{
+  color: #000 !important;
+  text-decoration: none;
+}
+
+/*
+  ========================================
+  Recipe
+  ========================================
+*/
+
+.recipe-list {
+  /*border: 1px solid #000;*/
+  display: inline-block;
+  height: 280px;
+  margin-bottom: .625em;
+  margin-right: .625em;
+  position: relative;
+  box-shadow: 
+    2px 2px 2px #222,
+    -.4px -.4px 1px #eee;
+  width: 400px;
+  overflow: hidden;
+}
+
+.recipe-list:last-child {
+  margin-right: 0;
+}
+
+.recipe-title {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.recipe-list img {
+  width: 120%;
+/*  height: auto;*/
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.recipe-list .object-btns {
+  float: right;
+}
+
+/*
+  ========================================
+  Ingredient
+  ========================================
+*/
+
+.ingredient-list {
+  border: 1px solid #000;
+  display: inline-block;
+  height: 210px;
+  margin-bottom: .625em;
+  margin-right: .625em;
+  position: relative;
+  width: 263.333333px;
+  overflow: hidden;
+}
+
+.ingredient-list:last-child {
+  margin-right: 0;
+}
+
+.ingredient-title {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.ingredient-list img {
+  width: 120%;
+/*  height: auto;*/
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.ingredient-list .object-btns {
+  float: right;
+}
+
+/*
+  ========================================
+  Buttons
+  ========================================
+*/
+
+.btn {
+  /*border: 1px solid #000;*/
+}
+
+
+/*img {
+  width: 400px;
+}*/

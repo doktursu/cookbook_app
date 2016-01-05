@@ -1,8 +1,18 @@
-<h2>Ingredients</h2>
+<div class="sub-header">
+  <div class="sub-nav">
+    <%= button_to "New Ingredient", new_ingredient_path, method: :get,  class: "btn btn-new" %>
+  </div>
+  <h2 class="sub-heading">Ingredients</h2>
+</div>
+
 
 <% @ingredients.each do |ingredient| %>
-  <h3><%= link_to ingredient.name, ingredient_path(ingredient) %></h3>
-  <%= button_to "Edit", edit_ingredient_path(ingredient), method: :get %>
-  <%= button_to "Delete", ingredient_path(ingredient), method: :delete, data: { confirm: "Delete ingredient?" } %>
-  <%= image_tag ingredient.image %>
+  <div class="ingredient-list">
+    <h3 class="ingredient-title"><%= link_to ingredient.name, ingredient_path(ingredient) %></h3>
+    <%= image_tag ingredient.image %>
+    <div class="object-btns">
+      <%= button_to "Edit", edit_ingredient_path(ingredient), method: :get, class: "btn btn-edit" %>
+      <%= button_to "Delete", ingredient_path(ingredient), method: :delete, data: { confirm: "Delete ingredient?" }, class: "btn btn-delete" %>
+    </div>
+  </div>
 <% end %>
